@@ -10,3 +10,9 @@ rust:
 	else \
 		echo "Directory for day $(day) already exists"; \
 	fi
+
+this_year = $(shell pwd | grep -o '[0-9]\{4\}')
+year:
+	echo "Making year $(this_year)"
+	sed -i -e 's/YEAR/$(aoc_year)/g' _setup/src/main.rs
+	rm _setup/src/main.rs-e
